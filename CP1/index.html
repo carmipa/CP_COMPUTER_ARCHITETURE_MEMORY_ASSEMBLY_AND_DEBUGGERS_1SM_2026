@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CP1: Writeup Reverse Engineering - Paulo André Carminati</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <main class="presentation-container">
+        <header class="fade-in">
+            <span class="badge">FIAP 2026 - Checkpoint 1</span>
+            <h1>Engenharia Reversa</h1>
+            <p class="subtitle">COMPUTER_ARCHITECTURE_MEMORY_ASSEMBLY_AND_DEBUGGERS_1SM_2026</p>
+            <div class="student-meta">
+                <span><strong>Aluno:</strong> Paulo André Carminati</span>
+                <span><strong>RM:</strong> 570877</span>
+            </div>
+        </header>
+
+        <section class="video-section fade-in delay-1">
+            <div class="glass-card video-card">
+                <div class="video-wrapper">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/WN3zRoRbf9U" 
+                        title="Demonstração Reverse Engineering" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <div class="info-item">
+                        <span class="label">Alvo</span>
+                        <span class="value">Bypass.exe (HTB)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Debugger</span>
+                        <span class="value">x32dbg</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Flag Timestamp</span>
+                        <span class="value highlight">17:26</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proof Section -->
+        <section class="proof-section fade-in delay-2">
+            <div class="glass-card proof-card">
+                <h2>Prova Visual do Dump de Memória</h2>
+                <div class="image-container">
+                    <img src="flag-prova.png" alt="Captura de tela do x32dbg com a flag">
+                </div>
+                <p class="image-caption">Captura de tela demonstrando os registradores EAX/EDX contendo a flag em texto claro durante a execução.</p>
+            </div>
+        </section>
+
+        <section class="writeup-summary fade-in delay-2">
+            <div class="glass-card content-card">
+                <h2>Resumo do Processo Técnico</h2>
+                <div class="steps-grid">
+                    <div class="step">
+                        <span class="step-num">01</span>
+                        <h3>Triagem (DIE)</h3>
+                        <p>Identificação de binário 32-bit em .NET Framework 4.5.2.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">02</span>
+                        <h3>Lógica (dnSpy)</h3>
+                        <p>Análise de descompilação: identificada criptografia Rijndael (AES).</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">03</span>
+                        <h3>Debug (x32dbg)</h3>
+                        <p>Inspeção de memória e breakpoints em <code>String.Equality</code>.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">04</span>
+                        <h3>Extração</h3>
+                        <p>Captura da flag em texto claro diretamente dos registradores EAX/EDX.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="fade-in delay-2">
+            <div class="actions">
+                <a href="readme.md" class="btn secondary">Documentação Completa (Writeup)</a>
+                <a href="https://github.com" class="btn primary">Repositório GitHub</a>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Writeup presentation loaded.');
+        });
+    </script>
+</body>
+</html>
