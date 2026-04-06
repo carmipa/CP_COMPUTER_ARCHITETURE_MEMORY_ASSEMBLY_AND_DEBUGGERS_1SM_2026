@@ -20,4 +20,4 @@ Abaixo estão listados os Checkpoints realizados durante o semestre:
 
 ---
 
-FIAP - 2026
+FIAP - 2026 - 1º Semestre - CYBER SEGURANÇA
